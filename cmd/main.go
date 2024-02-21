@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/XanderMoroz/fiber_test/database"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -9,8 +8,8 @@ func main() {
 	// Start a new fiber app
 	app := fiber.New()
 
-	// Connect to the Database
-	database.ConnectDB()
+	// Инициализируем базу данных на основе GORM;
+	// h := db.Init()
 
 	// Send a string back for GET calls to the endpoint "/"
 	app.Get("/", func(c *fiber.Ctx) error {
@@ -18,6 +17,6 @@ func main() {
 		return err
 	})
 
-	// Listen on PORT 300
+	// Listen on PORT 3000
 	app.Listen(":3000")
 }
